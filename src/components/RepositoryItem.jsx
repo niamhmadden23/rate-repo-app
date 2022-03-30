@@ -1,4 +1,11 @@
-import { View, Text } from "react-native";
+import { View, Text, Image, StyleSheet } from "react-native";
+
+const styles = StyleSheet.create({
+  smallLogo: {
+    width: 50,
+    height: 50,
+  },
+});
 
 const RepositoryItem = ({ item }) => {
   return (
@@ -10,7 +17,12 @@ const RepositoryItem = ({ item }) => {
       <Text>{item.starGazersCount}</Text>
       <Text>{item.ratingAverage}</Text>
       <Text>{item.reviewCount}</Text>
-      <Text>{item.ownerAvatarUrl}</Text>
+      <Image
+        style={styles.smallLogo}
+        source={{
+          uri: item.ownerAvatarUrl,
+        }}
+      />
     </View>
   );
 };
