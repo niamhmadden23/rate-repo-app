@@ -1,6 +1,14 @@
-import { Text, View, StyleSheet } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import Constants from "expo-constants";
-import AppBarRepoTab from "./AppBarRepoTab";
+import React from "react";
+
+const AppBarRepoTab = () => {
+  return (
+    <View>
+      <Text style={styles.text}>Repositories</Text>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -18,12 +26,4 @@ const styles = StyleSheet.create({
   },
 });
 
-const AppBar = () => {
-  return (
-    <View style={styles.container}>
-      <AppBarRepoTab />
-    </View>
-  );
-};
-
-export default AppBar;
+export default AppBarRepoTab;
