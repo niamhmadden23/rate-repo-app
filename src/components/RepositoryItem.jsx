@@ -1,28 +1,78 @@
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Image, StyleSheet } from "react-native";
+import Text from "./Text";
 
 const styles = StyleSheet.create({
   smallLogo: {
     width: 50,
     height: 50,
+    borderRadius: 3,
+    marginTop: 10,
+    marginLeft: 10,
+  },
+  border: {
+    borderBottomColor: "#DCDCDC",
+    borderBottomWidth: 7,
+    paddingBottom: 15,
+  },
+  repoLanguage: {
+    backgroundColor: "#0366d6",
+    padding: 3,
+    color: "white",
+    borderRadius: 3,
+    width: 100,
+    textAlign: "center",
+    marginTop: 5,
+  },
+  repoName: {
+    fontWeight: "bold",
+    marginBottom: 5,
+  },
+  repoStats: {
+    marginLeft: 70,
+    marginTop: -50,
+    width: "50%",
+  },
+  repoInfo: {
+    marginLeft: 10,
+    marginTop: 20,
+    paddingRight: 70,
   },
 });
 
 const RepositoryItem = ({ item }) => {
   return (
-    <View>
-      <Text>{item.fullName}</Text>
-      <Text>{item.description}</Text>
-      <Text>{item.language}</Text>
-      <Text>{item.forksCount}</Text>
-      <Text>{item.starGazersCount}</Text>
-      <Text>{item.ratingAverage}</Text>
-      <Text>{item.reviewCount}</Text>
-      <Image
-        style={styles.smallLogo}
-        source={{
-          uri: item.ownerAvatarUrl,
-        }}
-      />
+    <View style={styles.border}>
+      <View>
+        <Image
+          style={styles.smallLogo}
+          source={{
+            uri: item.ownerAvatarUrl,
+          }}
+        />
+      </View>
+      <View style={styles.repoStats}>
+        <Text style={styles.repoName}>{item.fullName}</Text>
+        <Text>{item.description}</Text>
+        <Text style={styles.repoLanguage}>{item.language}</Text>
+      </View>
+      <View style={({ flex: 1 }, { flexDirection: "row" })}>
+        <View style={styles.repoInfo}>
+          <Text style={{ fontWeight: "bold" }}>{item.forksCount}</Text>
+          <Text color="textSecondary">Forks</Text>
+        </View>
+        <View style={styles.repoInfo}>
+          <Text style={{ fontWeight: "bold" }}>{item.stargazersCount}</Text>
+          <Text color="textSecondary">Stars</Text>
+        </View>
+        <View style={styles.repoInfo}>
+          <Text style={{ fontWeight: "bold" }}>{item.ratingAverage}</Text>
+          <Text color="textSecondary">Rating</Text>
+        </View>
+        <View style={styles.repoInfo}>
+          <Text style={{ fontWeight: "bold" }}>{item.reviewCount}</Text>
+          <Text color="textSecondary">Reviews</Text>
+        </View>
+      </View>
     </View>
   );
 };
