@@ -1,6 +1,11 @@
 import { View, Image, StyleSheet } from "react-native";
 import Text from "./Text";
 
+const formatNumberToK = (number) => {
+  return Math.abs(number) > 999
+    ? Math.sign(number) * (Math.abs(number) / 1000).toFixed(1) + "k"
+    : Math.sign(number) * Math.abs(number);
+};
 const styles = StyleSheet.create({
   smallLogo: {
     width: 50,
@@ -57,19 +62,27 @@ const RepositoryItem = ({ item }) => {
       </View>
       <View style={({ flex: 1 }, { flexDirection: "row" })}>
         <View style={styles.repoInfo}>
-          <Text style={{ fontWeight: "bold" }}>{item.forksCount}</Text>
+          <Text style={{ fontWeight: "bold" }}>
+            {formatNumberToK(item.forksCount)}
+          </Text>
           <Text color="textSecondary">Forks</Text>
         </View>
         <View style={styles.repoInfo}>
-          <Text style={{ fontWeight: "bold" }}>{item.stargazersCount}</Text>
+          <Text style={{ fontWeight: "bold" }}>
+            {formatNumberToK(item.stargazersCount)}
+          </Text>
           <Text color="textSecondary">Stars</Text>
         </View>
         <View style={styles.repoInfo}>
-          <Text style={{ fontWeight: "bold" }}>{item.ratingAverage}</Text>
+          <Text style={{ fontWeight: "bold" }}>
+            {formatNumberToK(item.ratingAverage)}
+          </Text>
           <Text color="textSecondary">Rating</Text>
         </View>
         <View style={styles.repoInfo}>
-          <Text style={{ fontWeight: "bold" }}>{item.reviewCount}</Text>
+          <Text style={{ fontWeight: "bold" }}>
+            {formatNumberToK(item.reviewCount)}
+          </Text>
           <Text color="textSecondary">Reviews</Text>
         </View>
       </View>
