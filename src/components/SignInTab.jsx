@@ -3,12 +3,12 @@ import Constants from "expo-constants";
 import React from "react";
 import { Link } from "react-router-native";
 
-const AppBarRepoTab = () => {
+const SignInTab = () => {
   return (
     <View>
       <TouchableHighlight>
-        <Link to="/">
-          <Text style={styles.text}> Repositories</Text>
+        <Link to="/signin">
+          <Text style={styles.textSignIn}> Sign In</Text>
         </Link>
       </TouchableHighlight>
     </View>
@@ -16,19 +16,13 @@ const AppBarRepoTab = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    paddingTop: Constants.statusBarHeight,
-    height: 100,
-    backgroundColor: "black",
-    opacity: 0.7,
-  },
-  text: {
+  textSignIn: {
     color: "white",
     fontWeight: "bold",
     marginTop: 40,
-    marginLeft: 10,
+    marginLeft: 30,
     fontSize: 20,
   },
 });
 
-export default AppBarRepoTab;
+export default SignInTab;
