@@ -1,5 +1,4 @@
 import { View, Text, StyleSheet, TouchableHighlight } from "react-native";
-import Constants from "expo-constants";
 import React from "react";
 import { Link } from "react-router-native";
 

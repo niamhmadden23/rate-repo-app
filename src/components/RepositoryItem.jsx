@@ -1,4 +1,4 @@
-import { View, Image, StyleSheet } from "react-native";
+import { View, Image, StyleSheet, ScrollView } from "react-native";
 import Text from "./Text";
 
 const formatNumberToK = (number) => {
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   repoInfo: {
     marginLeft: 10,
     marginTop: 20,
-    paddingRight: 70,
+    paddingRight: 50,
   },
 });
 
@@ -55,6 +55,7 @@ const RepositoryItem = ({ item }) => {
           }}
         />
       </View>
+
       <View style={styles.repoStats}>
         <Text style={styles.repoName}>{item.fullName}</Text>
         <Text>{item.description}</Text>
